@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터수집</title>
+</head>
+
+<body>
+
+    <button onclick="f_send()">요청 보내기</button>
+    
+    <script>
+
+        function f_send(){
+                let pageNo = 1;
+    
+                f_busan(pageNo);
+        }
+        
+        let v_food = [];
+
+        function f_busan(p_pageNo){
+        var xhr = new XMLHttpRequest();
+        var url = 'http://apis.data.go.kr/6260000/FoodService/getFoodKr'; /*URL*/
+        var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'CS%2Bk%2FirubY8i8Th%2F3coD9HR60TSpvbSg7YAwW%2B4DAp87nC7NkAvhIN3gCbAvMgYmvSXqm9qspSs1bENKICwk0Q%3D%3D'; /*Service Key*/
+        queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent(p_pageNo); /**/
+        queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100'); /**/
+        queryParams += '&' + encodeURIComponent('resultType') + '=' + encodeURIComponent('json'); /**/
+        xhr.open('GET', url + queryParams);
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                    console.log('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);   // v_ajax.response
+                    
+                    // response로 온 데이터의 수가 0이 될때까지 재귀함수
+                    let v_json = JSON.parse(this.responseText);
+                    console.log(v_json["getFoodKr"]["item"].length);
+                    if(v_json["getFoodKr"]["item"].length > 0){
+
+                        let v_items = v_json["getFoodKr"]["item"];
+
+                        for(let i=0; i<v_items.length; i++){
+                            v_food.push(v_items[i]);
+                        }
+
+                        p_pageNo++;
+                        f_busan(p_pageNo);
+                    }else{
+                        // data가 0개 오는 구간
+                        document.write("데이터를 전부 불러왔습니다.");
+                        localStorage.setItem("foodData", JSON.stringify(v_food));
+                    }
+                    
+            }
+        };
+
+        xhr.send('');
+    }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+
+
+    <style>
+        .container {
+            width: 100%;
+            padding-top: 3%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            height: 100px;
+            align-items: center;
+
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: pink;
+
+            z-index: 1;
+        }
+
+        .logo {
+            width: 20%;
+
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .search {
+            width: 60%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 5%;
+            padding-right: 5%;
+
+        }
+
+        .menu {
+            width: 20%;
+            height: 100%;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .menu>div:nth-child(1) {
+            width: 50%;
+            height: 100%;
+            color: white;
+            border-left: 2px solid hotpink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .menu>div:nth-child(2) {
+            width: 50%;
+            height: 100%;
+            color: white;
+            border-left: 2px solid hotpink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+
+
+        .search input {
+            width: 80%;
+            height: 40%;
+            font-size: 20px;
+            border: none;
+            border-radius: 20px;
+
+        }
+
+        .search button {
+            font-size: 20px;
+            border: none;
+            background-color: hotpink;
+            width: 20%;
+            height: 40%;
+            color: white;
+            cursor: pointer;
+        }
+
+        .header {
+
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+
+
+        }
+
+        .a {
+            position: absolute;
+            top: 25%;
+            color: white;
+            font-size: 50px;
+        }
+
+        .b {
+            position: absolute;
+            top: 50%;
+            color: white;
+            font-size: 50px;
+        }
+
+        .list {
+
+            width: 100%;
+            height: 80px;
+            position: relative;
+            align-items: center;
+        }
+
+        .list>div {
+            position: absolute;
+            left: 5%;
+            color: hotpink;
+        }
+
+        .main {
+            width: 100%;
+            height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .left-button {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            left: 2%;
+            top: 45%;
+            cursor: pointer;
+        }
+
+        .right-button {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            right: 3%;
+            top: 45%;
+            cursor: pointer;
+        }
+
+
+
+        .page1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+
+            padding-left: 8%;
+            padding-right: 8%;
+            padding-top: 4%;
+            float: left;
+        }
+
+        .page1>div {
+
+
+            width: 500px;
+            height: 200px;
+            margin-bottom: 40px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+
+        }
+
+        .page1>div>h1 {
+            position: absolute;
+            color: white;
+        }
+
+        .page2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+
+            padding-left: 8%;
+            padding-right: 8%;
+            padding-top: 4%;
+            float: left;
+        }
+
+        .page2>div {
+
+
+            width: 500px;
+            height: 200px;
+            margin-bottom: 40px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+
+        }
+
+        .page2>div>h1 {
+            position: absolute;
+            color: white;
+        }
+
+        .page3 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+
+            padding-left: 8%;
+            padding-right: 8%;
+            padding-top: 4%;
+        }
+
+        .page3>div {
+
+
+            width: 500px;
+            height: 200px;
+            margin-bottom: 40px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+
+
+        }
+
+        .page3>div>h1 {
+            position: absolute;
+            color: white;
+        }
+
+
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="nav-bar">
+            <div class="logo">
+                <img width="80%" height="80%"
+                    src="https://static1.squarespace.com/static/5e7c2c3fe8eebf60e2ef39b4/t/5e7c2eda1fa3014a5adcdc43/1585196767920/WorldFoodsPortland_Logo_Color-01.png?format=1500w"
+                    alt="">
+            </div>
+            <div class="search">
+                <input onclick="none" type="text">
+                <button>search</button>
+            </div>
+            <div class="menu">
+                <div>맛집리스트</div>
+                <div>마이페이지</div>
+            </div>
+        </div>
+
+        <div class="header">
+            <h1 class="a">솔직한 리뷰, 믿을 수 있는 평점!</h1>
+            <br>
+            <h1 class="b">부산맛집</h1>
+            <img width="100%" height="100%"
+                src="https://c.wallhere.com/photos/66/48/Busan_building_skyscraper-2184221.jpg!d" alt="">
+        </div>
+
+        <div class="list">
+            <div>
+                <h1>믿고 보는 맛집리스트</h1>
+
+            </div>
+        </div>
+
+        <div class="main">
+
+            <div class="left-button" onclick="f_leftclick()">
+                <img width="100%" height="100%" src="../jiyoung_project/resources/images/화살표.png" alt="">
+            </div>
+
+
+            <div class="right-button" onclick="f_rightclick()">
+                <img width="100%" height="100%" src="https://cdn-icons-png.flaticon.com/512/7013/7013517.png" alt="">
+            </div>
+
+
+
+            <div onclick="f_click()" class="page1">
+                <div>
+                    <img id="foodimg0" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist0"></h1>
+                </div>
+                <div>
+                    <img id="foodimg1" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist1"></h1>
+                </div>
+                <div>
+                    <img id="foodimg2" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist2"></h1>
+                </div>
+                <div>
+                    <img id="foodimg3" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist3"></h1>
+                </div>
+                <div>
+                    <img id="foodimg4" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist4"></h1>
+                </div>
+                <div>
+                    <img id="foodimg5" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist5"></h1>
+                </div>
+            </div>
+            <div onclick="f_click()" class="page2">
+                <div>
+                    <img id="foodimg6" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist6"></h1>
+                </div>
+                <div>
+                    <img id="foodimg7" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist7"></h1>
+                </div>
+                <div>
+                    <img id="foodimg8" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist8"></h1>
+                </div>
+                <div>
+                    <img id="foodimg9" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist9"></h1>
+                </div>
+                <div>
+                    <img id="foodimg10" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist10"></h1>
+                </div>
+                <div>
+                    <img id="foodimg11" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist11"></h1>
+                </div>
+            </div>
+            <div onclick="f_click()" class="page3">
+                <div>
+                    <img id="foodimg12" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist12"></h1>
+                </div>
+                <div>
+                    <img id="foodimg13" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist13"></h1>
+                </div>
+                <div>
+                    <img id="foodimg14" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist14"></h1>
+                </div>
+                <div>
+                    <img id="foodimg15" width="100%" height="100%" src="" alt="">
+                    <h1 id="foodlist15"></h1>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        let v_foodData = JSON.parse(localStorage.getItem("foodData"));
+        let v_GUGUN_NM_ALL = [];
+        let v_GUGUN_NM = [];
+        let v_gangseo = [];
+        let v_yeongdo = [];
+        let v_busanjin = [];
+        let v_yeonje = [];
+        let v_junggu = [];
+        let v_geumjeong = [];
+        let v_bukgu = [];
+        let v_haeundae = [];
+        let v_sasang = [];
+        let v_gijang = [];
+        let v_saha = [];
+        let v_seogu = [];
+        let v_namgu = [];
+        let v_suyeong = [];
+        let v_donggu = [];
+        let v_dongnae = [];
+        let v_count = [];
+        let v_mainimg = [];
+
+
+
+
+        console.log(v_foodData);
+
+        for (let i = 0; i < v_foodData.length; i++) {
+            v_GUGUN_NM_ALL.push(v_foodData[i]["GUGUN_NM"]);
+        }
+        console.log(v_GUGUN_NM_ALL);
+
+        for (let i = 0; i < v_GUGUN_NM_ALL.length; i++) {
+            if (v_GUGUN_NM.indexOf(v_GUGUN_NM_ALL[i]) == -1) {
+                v_GUGUN_NM.push(v_GUGUN_NM_ALL[i]);
+            }
+        }
+        console.log(v_GUGUN_NM);
+        localStorage.setItem("v_GUGUN_NM", JSON.stringify(v_GUGUN_NM));
+
+        for (let i = 0; i < v_GUGUN_NM_ALL.length; i++) {
+            if (v_GUGUN_NM_ALL[i] == "강서구") {
+                v_gangseo.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "영도구") {
+                v_yeongdo.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "부산진구") {
+                v_busanjin.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "연제구") {
+                v_yeonje.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "중구") {
+                v_junggu.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "금정구") {
+                v_geumjeong.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "북구") {
+                v_bukgu.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "해운대구") {
+                v_haeundae.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "사상구") {
+                v_sasang.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "기장군") {
+                v_gijang.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "사하구") {
+                v_saha.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "서구") {
+                v_seogu.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "남구") {
+                v_namgu.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "수영구") {
+                v_suyeong.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "동구") {
+                v_donggu.push(v_foodData[i])
+            }
+            if (v_GUGUN_NM_ALL[i] == "동래구") {
+                v_dongnae.push(v_foodData[i])
+            }
+        }
+
+        console.log(v_gangseo);
+        console.log(v_yeongdo);
+        console.log(v_busanjin);
+        console.log(v_yeonje);
+        console.log(v_junggu);
+        console.log(v_geumjeong);
+        console.log(v_bukgu);
+        console.log(v_haeundae);
+        console.log(v_sasang);
+        console.log(v_gijang);
+        console.log(v_saha);
+        console.log(v_seogu);
+        console.log(v_namgu);
+        console.log(v_suyeong);
+        console.log(v_donggu);
+        console.log(v_dongnae);
+
+        localStorage.setItem("v_gangseo", JSON.stringify(v_gangseo));
+        localStorage.setItem("v_yeongdo", JSON.stringify(v_yeongdo));
+        localStorage.setItem("v_busanjin", JSON.stringify(v_busanjin));
+        localStorage.setItem("v_yeonje", JSON.stringify(v_yeonje));
+        localStorage.setItem("v_junggu", JSON.stringify(v_junggu));
+        localStorage.setItem("v_geumjeong", JSON.stringify(v_geumjeong));
+        localStorage.setItem("v_bukgu", JSON.stringify(v_bukgu));
+        localStorage.setItem("v_haeundae", JSON.stringify(v_haeundae));
+        localStorage.setItem("v_sasang", JSON.stringify(v_sasang));
+        localStorage.setItem("v_gijang", JSON.stringify(v_gijang));
+        localStorage.setItem("v_saha", JSON.stringify(v_saha));
+        localStorage.setItem("v_seogu", JSON.stringify(v_seogu));
+        localStorage.setItem("v_namgu", JSON.stringify(v_namgu));
+        localStorage.setItem("v_suyeong", JSON.stringify(v_suyeong));
+        localStorage.setItem("v_donggu", JSON.stringify(v_donggu));
+        localStorage.setItem("v_dongnae", JSON.stringify(v_dongnae));
+
+
+        let count = 0;
+        for (let i = 0; i < v_GUGUN_NM.length; i++) {
+            for (let j = 0; j < v_GUGUN_NM_ALL.length; j++) {
+                if (v_GUGUN_NM[i] == v_GUGUN_NM_ALL[j]) {
+                    count = count + 1
+                }
+            }
+            v_count.push(count);
+            count = 0;
+
+        }
+        console.log(v_count);
+        localStorage.setItem("v_count", JSON.stringify(v_count));
+        
+
+        let mainimgcount = 0;
+        for (let i = 0; i < v_GUGUN_NM.length; i++) {
+            for (let j = 0; j < v_GUGUN_NM_ALL.length; j++) {
+                if (v_GUGUN_NM[i] == v_GUGUN_NM_ALL[j] && mainimgcount != i + 1) {
+                    v_mainimg.push(v_foodData[j]["MAIN_IMG_NORMAL"]);
+                    mainimgcount = mainimgcount + 1;
+                }
+            }
+
+        }
+        console.log(mainimgcount);
+        console.log(v_mainimg);
+
+
+
+
+        for (let i = 0; i < v_GUGUN_NM.length; i++) {
+            $("#foodlist" + [i]).html(v_GUGUN_NM[i] + " 맛집 베스트 " + v_count[i] + "곳")
+            $("#foodimg" + [i]).attr("src", v_mainimg[i])
+                .css("filter", "brightness(60%)");
+        }
+
+        let b_click = 0;
+        function f_rightclick() {
+            if(b_click == 0) {
+            $(".page1 div img").css("display", "none");
+            $(".page1 div").css("display", "none");
+            $(".page1").css("display", "none");
+            b_click = b_click+1;
+        }else if(b_click == 1) {
+            $(".page2 div img").css("display", "none");
+            $(".page2 div").css("display", "none");
+            $(".page2").css("display", "none");
+        }
+        console.log(b_click)
+
+        }
+
+        function f_leftclick() {
+            if(b_click == 1){
+            $(".page2 div img").css("display", "");
+            $(".page2 div").css("display", "");
+            $(".page2").css("display", "");
+            b_click = b_click-1;
+        }else if(b_click == 0){
+            $(".page1 div img").css("display", "");
+            $(".page1 div").css("display", "");
+            $(".page1").css("display", "");
+        }
+        }
+
+
+
+        function f_click(){
+            location.href = "./부산맛집리스트.html"
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
